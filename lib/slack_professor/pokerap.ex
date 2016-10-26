@@ -40,8 +40,6 @@ defmodule SlackProfessor.Pokerap do
 
   #Parses command passed in from users
   defp parse_command(command, pokemon) do
-    IO.puts(command)
-    IO.puts(pokemon)
     case command do
       ["show"|_] ->
         show_me(pokemon)

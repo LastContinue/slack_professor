@@ -28,14 +28,14 @@ Poolboy and an ETS cache to keep from hammering the API too hard (they will limi
 
 ## Usage
 First, you need a Slack Api Token for a bot. You can create this by logging into Slack as an admin, then
-going to `apps > custom integrations`. and there should be a dialog to make a bot.
+going to `apps > custom integrations` and there should be a dialog to make a bot. (Or just Google it, probably more detailed)
 
 Using this token, you can create a bot simply by
 
     iex(1)> SlackProfessor.Bot.start_link("your_api_token")
     Connected as "<BotName>"
 
-Seriously, that's it! Your bot should now show up in Slack, and you can invite it to channels, etc.
+That's it! Your bot should now show up in Slack, and you can invite it to channels, etc.
 
 You can even make multiple bots! This is a good idea if you have multiple Slack orgs because
 the bots will share the same connection pool and ETS cache (assuming they are ran in the same process/program)!
@@ -43,7 +43,7 @@ the bots will share the same connection pool and ETS cache (assuming they are ra
 #### Side Notes:
 You'll notice that this application doesn't actually _create_ the bots, it only contains
 the overhead (supervisors, ETS, gen_servers, etc) to support bots. You'll need to create another
-application to actually create them.
+application to actually create them (or a long running IEX)
 
 I played around with a few different ways to attempt to combine setting up all of the code
 behind the bots, and then creating bots, but it never really felt "right".
