@@ -2,7 +2,7 @@
 
 Slack Bot Application that uses [Pokerap]("https://github.com/LastContinue/Pokerap") to consume [Pokeapi](http://pokeapi.co)
 
-This is an implementation of [https://github.com/BlakeWilliams/Elixir-Slack](https://github.com/BlakeWilliams/Elixir-Slack) that
+This is an implementation of [Elixir-Slack](https://github.com/BlakeWilliams/Elixir-Slack) that
 queries the [http://pokeapi.co/](http://pokeapi.co/) API using [Pokerap]("https://github.com/LastContinue/Pokerap") . To be a responsible citizen, it uses
 Poolboy and an ETS cache to keep from hammering the API too hard (they will limit you).
 
@@ -63,10 +63,10 @@ Lets say you have a bot named `ProfessorOak`
 
 |Commands| Description |
 |--------|-------------|
-|"tell me about "| Gets a random [flavor text](http://pokeapi.co/docsv2/#common-models) for Pokemon (language can be set, see ENV/Configs section)|
-|"evolution "| Gets a very simple evolution chain for a Pokemon|
-|"show me"| Gets two sprites for a Pokemon|
-|"what type is"| Tells the type of a Pokemon|
+|"tell me about X"| Gets a random [flavor text](http://pokeapi.co/docsv2/#common-models) for Pokemon (language can be set, see ENV/Configs section)|
+|"evolution X"| Gets a very simple evolution chain for a Pokemon|
+|"show me X"| Gets two sprites for a Pokemon|
+|"what type is X"| Tells the type of a Pokemon|
 
 That's it for now, but there's a bunch more to add (PR's welcomed!)
 
@@ -78,7 +78,7 @@ You can customize some aspects of your bots depending on your needs. All setting
 Please read up on Poolboy
 before messing with those settings (I barely understand them)
 
-|  Env  | Desc | Format | Default
+|  Env  | Desc | Format | Default|
 |-------|------|--------|--------|
 |`:slack_professor, :timeout`| Timeout for Bot to complete task. Don't set it lower than Pokerap timeout settings| integer (in milliseconds)| 30000 |
 | `:slack_professor, :pool_size`| How many Poolboy workers you have (be cool with this)| integer | 5 |

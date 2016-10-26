@@ -7,8 +7,14 @@ defmodule SlackProfessor.Mixfile do
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps()
-   ]
+     deps: deps(),
+     # Docs
+     name: "SlackProfessor",
+     source_url: "https://github.com/lastcontinue/slack_professor",
+     homepage_url: "https://github.com/lastcontinue/slack_professor",
+     docs: [ main: "readme",
+       extras: ["README.md"]]
+    ]
   end
 
   def application do
