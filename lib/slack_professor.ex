@@ -17,12 +17,14 @@ defmodule SlackProfessor do
     children = [
       :poolboy.child_spec(:pokerap_pool, poolboy_config, []),
       worker(SlackProfessor.Cache, []),
-      supervisor(Task.Supervisor, [[name: :response_supervisor]]),
-      #makes it a little easier to dynamically create bots in possible future
-      supervisor(SlackProfessor.Bot.Supervisor, []),
+      supervisor(Task.Supervisor, [[name: :reply_supervisor]]),
     ]
-    opts = [strategy: :rest_for_one, name: SlackProfessor.Supervisor]
+
+    opts = [strategy: :one_for_one, name: SlackProfessor.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
+  def start_bot(token) do
+    Slack.Bot.start_link(SlackProfessor.Bot, [], token)
+  end
 end

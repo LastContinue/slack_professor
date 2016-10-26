@@ -23,9 +23,8 @@ defmodule SlackProfessor.Mixfile do
   end
 
   defp deps do
-    [{:slack, "~> 0.7.1"},
+    [{:slack, "~> 0.8.0"},
      {:poolboy, "~> 1.5"},
-     {:websocket_client, git: "https://github.com/jeremyong/websocket_client"},
      {:pokerap, "~> 0.0.11"},
      {:ex_doc, "~> 0.14", only: :dev}
   ]

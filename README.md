@@ -32,17 +32,17 @@ going to `apps > custom integrations` and there should be a dialog to make a bot
 
 Using this token, you can create a bot simply by
 
-    iex(1)> SlackProfessor.Bot.start_link("your_api_token")
+    iex(1)> SlackProfessor.start_bot("your_api_token")
     Connected as "<BotName>"
 
 That's it! Your bot should now show up in Slack, and you can invite it to channels, etc.
 
 You can even make multiple bots! This is a good idea if you have multiple Slack orgs because
-the bots will share the same connection pool and ETS cache (assuming they are ran in the same process/program)!
+the bots will share the same connection pool and ETS cache (assuming they are ran in the same instance)!
 
 #### Side Notes:
 You'll notice that this application doesn't actually _create_ the bots, it only contains
-the overhead (supervisors, ETS, gen_servers, etc) to support bots. You'll need to create another
+the overhead (supervisors, ETS, etc) to support bots. You'll need to create another
 application to actually create them (or a long running IEX)
 
 I played around with a few different ways to attempt to combine setting up all of the code

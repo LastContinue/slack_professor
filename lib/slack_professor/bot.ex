@@ -1,31 +1,23 @@
 defmodule SlackProfessor.Bot do
   use Slack
 
-  def handle_connect(slack) do
+  def handle_connect(slack, state) do
     IO.puts "Connected as \"#{slack.me.name}\""
+    {:ok, state}
   end
 
-  def handle_message(message = %{type: "message", text: text}, slack) do
+  def handle_event(message = %{type: "message", text: text}, slack, state) do
     msg_fn = fn(output) -> send_message(output,message.channel,slack) end
     typing_fn = fn() -> indicate_typing(message.channel, slack) end
     if Regex.run ~r/<@#{slack.me.id}>:?/, text do
-      {:ok, _pid} = Task.Supervisor.start_child(:response_supervisor, fn ->
+      {:ok, _pid} = Task.Supervisor.start_child(:reply_supervisor, fn ->
         reply_to_slack(text,msg_fn,typing_fn)
       end)
-      {:ok}
     end
+    {:ok, state}
   end
 
-  def handle_message(_,_), do: :ok
-
-  def handle_info({:message, text, channel}, slack) do
-    IO.puts "Sending message to Slack"
-    send_message(text, channel, slack)
-    attachments = "[{}]"
-    opts =  %{token: slack.token, as_user: true, attachments: attachments }
-    Slack.Web.Chat.post_message(channel, "", opts)
-    {:ok}
-  end
+  def handle_event(_,_, state), do: {:ok, state}
 
   defp reply_to_slack(text, msg_fn, typing_fn) do
     {command, pokemon} = parse_text(text)
