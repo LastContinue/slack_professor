@@ -25,7 +25,7 @@ defmodule SlackProfessor.Mixfile do
   defp deps do
     [{:slack, "~> 0.8.0"},
      {:poolboy, "~> 1.5"},
-     {:pokerap, "~> 0.0.11"},
+     {:pokerap, "~> 0.0.12"},
      {:ex_doc, "~> 0.14", only: :dev}
   ]
   end

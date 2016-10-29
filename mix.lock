@@ -9,7 +9,7 @@
   "metrics": {:hex, :metrics, "1.0.1", "25f094dea2cda98213cecc3aeff09e940299d950904393b2a29d191c346a8486", [:rebar3], []},
   "mimerl": {:hex, :mimerl, "1.0.2", "993f9b0e084083405ed8252b99460c4f0563e41729ab42d9074fd5e52439be88", [:rebar3], []},
   "poison": {:hex, :poison, "3.0.0", "625ebd64d33ae2e65201c2c14d6c85c27cc8b68f2d0dd37828fde9c6920dd131", [:mix], []},
-  "pokerap": {:hex, :pokerap, "0.0.11", "601f430f066e985d19f1e04520f9eb6cb5dd3fb447abc6a7c3816cd878878e82", [:mix], [{:httpoison, "~> 0.9.0", [hex: :httpoison, optional: false]}, {:poison, "~> 3.0", [hex: :poison, optional: false]}]},
+  "pokerap": {:hex, :pokerap, "0.0.12", "234a22f2087831010d9cdd7bf5327501099724b1c3d5c70b9d60afc6d4c1b77e", [:mix], [{:httpoison, "~> 0.9.0", [hex: :httpoison, optional: false]}, {:poison, "~> 3.0", [hex: :poison, optional: false]}]},
   "poolboy": {:hex, :poolboy, "1.5.1", "6b46163901cfd0a1b43d692657ed9d7e599853b3b21b95ae5ae0a777cf9b6ca8", [:rebar], []},
   "slack": {:hex, :slack, "0.8.0", "1241039a6f3397e0cb454bf963b84d3d90b11964d381f82477746088e0463a2b", [:mix], [{:exjsx, "~> 3.2.0", [hex: :exjsx, optional: false]}, {:httpoison, "~> 0.9.0", [hex: :httpoison, optional: false]}, {:websocket_client, "~> 1.1.0", [hex: :websocket_client, optional: false]}]},
   "ssl_verify_fun": {:hex, :ssl_verify_fun, "1.1.1", "28a4d65b7f59893bc2c7de786dec1e1555bd742d336043fe644ae956c3497fbe", [:rebar, :make], []},
