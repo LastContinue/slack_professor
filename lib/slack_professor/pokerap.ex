@@ -49,10 +49,7 @@ defmodule SlackProfessor.Pokerap do
         type_me(pokemon)
       ["evolution"|_] ->
         evolution(pokemon)
-      # ["test"|_] ->
-      #   :timer.sleep(:timer.seconds(String.to_integer(pokemon)))
-      #   {:info, "done waiting for #{pokemon}"}
-      # _ -> {:error, Text.unable_to_parse()}
+      _ -> {:error, Text.unable_to_parse()}
     end
   end
 
